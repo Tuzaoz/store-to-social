@@ -3,14 +3,14 @@ package org.example.entities;
 import java.util.List;
 
 public class ProductOfferV2 {
-    private List<Oferta> nodes;
+    private List<OfertaShopee> nodes;
 
 
-    public List<Oferta> getNodes() {
+    public List<OfertaShopee> getNodes() {
         return nodes;
     }
 
-    public void setNodes(List<Oferta> nodes) {
+    public void setNodes(List<OfertaShopee> nodes) {
         this.nodes = nodes;
     }
 }

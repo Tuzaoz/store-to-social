@@ -5,7 +5,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import okhttp3.*;
 
-import org.example.entities.Oferta;
+import org.example.entities.OfertaShopee;
 import org.json.JSONObject;
 
 
@@ -14,14 +14,14 @@ import java.util.List;
 
 
 public class ShopeeOfferRequest {
-    private List<Oferta> ofertas;
+    private List<OfertaShopee> ofertaShopees;
 
-    public List<Oferta> getOfertas() {
-        return ofertas;
+    public List<OfertaShopee> getOfertas() {
+        return ofertaShopees;
     }
 
-    public void setOfertas(List<Oferta> ofertas) {
-        this.ofertas = ofertas;
+    public void setOfertas(List<OfertaShopee> ofertaShopees) {
+        this.ofertaShopees = ofertaShopees;
     }
 
     public void Post() throws Exception {
@@ -73,7 +73,7 @@ public class ShopeeOfferRequest {
         JSONObject jsonResponse = new JSONObject(apiResponse.body().string());
         JSONObject data = jsonResponse.getJSONObject("data");
         JSONObject productOfferV2 = data.getJSONObject("productOfferV2");
-        List<Oferta> products = new ObjectMapper().readValue(productOfferV2.getJSONArray("nodes").toString(), new TypeReference<List<Oferta>>() {});
+        List<OfertaShopee> products = new ObjectMapper().readValue(productOfferV2.getJSONArray("nodes").toString(), new TypeReference<List<OfertaShopee>>() {});
         setOfertas(products);
     }
 }
